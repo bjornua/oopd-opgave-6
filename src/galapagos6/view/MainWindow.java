@@ -2,8 +2,6 @@ package galapagos6.view;
 
 import galapagos6.control.BiotopeController;
 import galapagos6.model.Biotope;
-import galapagos6.model.Finch;
-import galapagos6.model.Location;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -30,13 +28,16 @@ public class MainWindow extends JFrame implements Observer {
 		areapanel = new AreaPanel();
 		statuspanel = new StatusPanel(biotope, colormap);
 		
-        //Create and set up the window.
         JFrame frame = new JFrame("Assignment #6");
-		frame.setLayout(new GridLayout(3, 1));
+		frame.setLayout(new GridLayout(2, 1));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JFrame frame2 = new JFrame();
+        frame2.add(areapanel);
+        frame2.pack();
+        frame2.setVisible(true);
         
         frame.add(statuspanel);
-        frame.add(areapanel);
         frame.add(controlpanel);
         
         //Display the window.
