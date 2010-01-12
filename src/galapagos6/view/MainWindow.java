@@ -1,14 +1,16 @@
 package galapagos6.view;
 
+import galapagos6.control.BiotopeController;
+import galapagos6.model.Biotope;
+import galapagos6.model.Finch;
+import galapagos6.model.Location;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JFrame;
-
-import galapagos6.model.*;
-import galapagos6.control.*;
 
 public class MainWindow extends JFrame implements Observer {
 	private static final long serialVersionUID = 1L;
@@ -49,8 +51,17 @@ public class MainWindow extends JFrame implements Observer {
 	}
 
 	private void update_finches() {
-		//Color color = colormap.finchColors.get(id);
-		areapanel.point(2,4, Color.black);
+		for( int i = 0; i < biotope.getWidth(); ++i )
+        {
+            for( int j = 0; j < biotope.getHeight(); ++j )
+            {
+            	if (biotope.empty(i, j) == true) {
+        			areapanel.point(i,j, Color.black);
+        		} else {
+        			areapanel.point(i,j, colormap.finchColors.get(biotope.behaviorId(i,j)));
+        		}
+            }
+        }
         areapanel.paint();
 	}
 }

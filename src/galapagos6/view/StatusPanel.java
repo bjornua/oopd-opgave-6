@@ -1,7 +1,6 @@
 package galapagos6.view;
 
 import java.awt.Color;
-import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import galapagos6.model.Biotope;
@@ -25,8 +24,6 @@ public class StatusPanel extends JPanel {
 			lines.add(line);
 			add(line);
 		}
-		
-		
 	}
 	
 	public void update_lines(){
