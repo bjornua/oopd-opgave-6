@@ -61,6 +61,8 @@ public class BiotopeController implements  ActionListener
         	start();
         } else if(command == "stop"){
         	stop();
+        } else if(command == "reset"){
+        	biotope.reset();
         } else if(command == "step"){
         	this.biotope.step();
         }else {
