@@ -1,0 +1,6 @@
+birthFrequency: 5
+infectionPrice: 5
+lifeMax: 20
+newBornLife: 8
+meanAge: 15
+spreadAge: 3
