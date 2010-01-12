@@ -54,8 +54,17 @@ public class BiotopeController implements  ActionListener
     }
     
     @Override
-    public void actionPerformed(ActionEvent arg0)
+    public void actionPerformed(ActionEvent actionevent)
     {
-        //TODO TO be implemented by student
+        String command = actionevent.getActionCommand();
+        if(command == "start"){
+        	start();
+        } else if(command == "stop"){
+        	stop();
+        } else if(command == "step"){
+        	this.biotope.step();
+        }else {
+        	assert false;
+        }
     }
 }
