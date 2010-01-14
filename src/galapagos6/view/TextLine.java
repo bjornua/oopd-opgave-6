@@ -8,46 +8,64 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * A frame with text, describing a group of finches
+ *
+ */
 public class TextLine extends JPanel {
 	private static final long serialVersionUID = 1L;
-	public Biotope biotope;
-	public String finch_id;
-	public JLabel selected_type;
-	public JLabel selected_population;
-	public JLabel selected_finches_killed;
-	public JLabel selected_finches_deceased;
-	public JLabel selected_finches_born;
-
+	private Biotope biotope;
+	private String finch_id;
+	private JLabel type;
+	private JLabel population;
+	private JLabel finches_killed;
+	private JLabel finches_deceased;
+	private JLabel finches_born;
+	
+	/**
+	 * Constructor of TextLine
+	 * @param color The desired color of the text
+	 * @param biotope The biotope object, to pull information from
+	 * @param finch_id The finch behavior type
+	 */
 	public TextLine(Color color, Biotope biotope, String finch_id) {
 		this.biotope = biotope;
 		this.finch_id = finch_id;
 		
-		selected_type = new JLabel();
-		selected_population = new JLabel();
-		selected_finches_killed = new JLabel();
-		selected_finches_deceased = new JLabel();
-		selected_finches_born = new JLabel();
+		type = new JLabel();
+		population = new JLabel();
+		finches_killed = new JLabel();
+		finches_deceased = new JLabel();
+		finches_born = new JLabel();
 		
-		selected_type.setForeground(color);
-		selected_population.setForeground(color);
-		selected_finches_killed.setForeground(color);
-		selected_finches_deceased.setForeground(color);
-		selected_finches_born.setForeground(color);
+		// Sets text color
+		type.setForeground(color);
+		population.setForeground(color);
+		finches_killed.setForeground(color);
+		finches_deceased.setForeground(color);
+		finches_born.setForeground(color);
 		
-		selected_type.setText(finch_id);
+		// Finch id only have to set once, so here we go
+		type.setText(finch_id);
+		
 		setLayout(new GridLayout(5, 1));
-		add(selected_type);
-		add(selected_population);
-		add(selected_finches_killed);
-		add(selected_finches_deceased);
-		add(selected_finches_born);
+		
+		add(type);
+		add(population);
+		add(finches_killed);
+		add(finches_deceased);
+		add(finches_born);
 	}
 	
+	/**
+	 * Pulls information from the biotope object, updates the labels with
+	 * the given information 
+	 */
 	public void update_labels(){
-		selected_population.setText(biotope.population(finch_id).toString());
-		selected_finches_killed.setText(biotope.killedTicks(finch_id).toString());
-		selected_finches_deceased.setText(biotope.killedNatural(finch_id).toString());
-		selected_finches_born.setText(biotope.born(finch_id).toString());
+		population.setText(biotope.population(finch_id).toString());
+		finches_killed.setText(biotope.killedTicks(finch_id).toString());
+		finches_deceased.setText(biotope.killedNatural(finch_id).toString());
+		finches_born.setText(biotope.born(finch_id).toString());
 	}
 	
 }

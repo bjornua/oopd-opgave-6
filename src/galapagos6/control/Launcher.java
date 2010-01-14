@@ -12,13 +12,16 @@ public class Launcher
 {
     private static Biotope biotope;
     private static BiotopeController control;
-
+    
     public static void main(String[] args)
     {
         biotope = new Biotope();
         control = new BiotopeController(biotope);
         new Launcher();
     }
+    /**
+     * Spawns main window
+     */
     public Launcher(){
     	MainWindow mainwindow = new MainWindow(biotope, control);
     	biotope.addObserver(mainwindow);
